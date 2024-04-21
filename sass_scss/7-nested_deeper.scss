@@ -8,9 +8,7 @@ body {
     }
   
     // Set font size to 12px for h1 tags with class .smaller inside body tags
-    .smaller {
-      h1 {
-        font-size: 12px;
-      }
+    &.smaller {
+      font-size: 12px;
     }
 }
