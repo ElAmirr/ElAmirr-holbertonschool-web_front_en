@@ -1,0 +1,10 @@
+// Set text color to #3D3D3D for elements inside body tags and text color to #FF0000 for elements of class .red that are the first children of the body
+$first-text-color: #3D3D3D;
+$second-text-color: #FF0000;
+
+body {
+    color: $first-text-color;
+    > .red {
+        color: $second-text-color;
+    }
+}

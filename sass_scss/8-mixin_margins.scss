@@ -1,0 +1,14 @@
+// Define mixin for setting horizontal margins
+@mixin horizontal-margin($left, $right) {
+    margin-left: $left;
+    margin-right: $right;
+  }
+  
+  // Apply margins to body and div tags using mixin
+  body {
+    @include horizontal-margin(10px, 10px);
+  }
+  
+  div {
+    @include horizontal-margin(15px, 15px);
+}

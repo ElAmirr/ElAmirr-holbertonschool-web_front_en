@@ -1,0 +1,10 @@
+// Set text color to #FF0000 for button tagscand Change text color to #00FF00 on hover
+$first-text-color: #FF0000;
+$second-text-color: #00FF00;
+button {
+    color: $first-text-color;
+  
+    &:hover {
+      color: $second-text-color;
+    }
+}

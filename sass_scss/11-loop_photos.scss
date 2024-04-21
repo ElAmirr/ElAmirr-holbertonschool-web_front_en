@@ -1,0 +1,16 @@
+// Define list of names and their respective background images
+$list-names: (
+  "apple": "url('apple.jpg')",
+  "banana": "url('banana.jpg')",
+  "orange": "url('orange.jpg')"
+);
+
+// Import the list of names and iterate over it
+@import "list-names";
+
+// Create classes for each name and assign background images
+@each $name, $image in $list-names {
+  .#{$name} {
+    background-image: $image;
+  }
+}
