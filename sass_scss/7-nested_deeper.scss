@@ -5,10 +5,11 @@ body {
     // Set font size to 16px for h1 tags inside body tags
     h1 {
       font-size: 16px;
+      .smaller {
+        font-size: 12px;
+      }
     }
   
     // Set font size to 12px for h1 tags with class .smaller inside body tags
-    .smaller {
-      font-size: 12px;
-    }
+    
 }
