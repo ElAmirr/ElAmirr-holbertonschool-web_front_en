@@ -179,15 +179,17 @@
   
   /* Grid
       ============================= */
+row {
+    display: flex;
+}
   
   ul.row {
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
   }
   
-
+  
   [class*='col-'] {
     padding: 0.5rem;
   }
