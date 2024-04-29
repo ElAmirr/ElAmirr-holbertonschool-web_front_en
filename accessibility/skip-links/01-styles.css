@@ -194,28 +194,30 @@
     position: absolute;
   }
   
-  .off-screen {
-      left: -100vw;
-      position: absolute;
-  }
+  /* Helpers section */
+.off-screen {
+    left: -100vw;
+    position: absolute;
+}
 
-  .skip-link {
+.skip-link {
     background-color: var(--color-black);
     color: var(--color-white);
     left: 0;
-    padding: .7rem;
+    padding: 0.7rem; /* Corrected padding value */
     position: fixed;
     opacity: 0;
     top: 0;
     z-index: 10;
     transform: translateY(-1rem);
-    transition: .2s ease-in-out, opacity .2s ease-in-out;
-  }
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
 
-  .skip-lin:focus {
+.skip-link:focus {
     opacity: 1;
     transform: translateY(0);
-  }
+}
+
   
   .skip-link {
       background-color: var(--color-black);
