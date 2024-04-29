@@ -204,7 +204,7 @@
     background-color: var(--color-black);
     color: var(--color-white);
     left: 0;
-    padding: 0.7rem; /* Corrected padding value */
+    padding: 0.7rem;
     position: fixed;
     opacity: 0;
     top: 0;
