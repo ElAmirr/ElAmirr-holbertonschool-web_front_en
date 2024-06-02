@@ -1,0 +1,47 @@
+/* Custom button primary color */
+.btn-primary {
+    background-color: #E0003C;
+    border-color: #E0003C;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: #BC1340;
+    border-color: #BC1340;
+}
+
+/* Custom button outline primary color */
+.btn-outline-primary {
+    color: #E0003C;
+    border-color: #E0003C;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    color: #BC1340;
+    border-color: #BC1340;
+    background-color: transparent;
+}
+
+/* Custom link color */
+a {
+    color: #E0003C;
+}
+
+a:hover,
+a:focus {
+    color: #E0003C;
+}
+
+/* Custom card border and radius */
+.card, .card-header, .card-footer {
+    border-color: #E0003C;
+    border-radius: 1rem;
+}
+
+/* Custom muted text color */
+.text-muted {
+    color: #8C8C8C !important;
+}
