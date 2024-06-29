@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Available Items</h1>
+    <div id="store"></div>
+    <script>
+        const availableItems = ['Shampoo', 'Soap', 'Sponge', 'Water'];
+
+        function isSessionStorageEnabled() {
+            try {
+                let test = 'test';
+                sessionStorage.setItem(test, test);
+                sessionStorage.removeItem(test);
+                return true;
+            } catch (e) {
+                return false;
+            }
+        }
+        
+        function addItemToCart(item) {
+            sessionStorage.setItem(item, true);
+            displayCart();
+        }
+        
+        function createStore() {
+            const storeDiv = document.getElementById('store');
+            const ul = document.createElement('ul');
+            availableItems.forEach(item => {
+                const li = document.createElement('li');
+                li.innerText = item;
+                li.style.cursor = 'pointer';
+                li.onclick = () => addItemToCart(item);
+                ul.appendChild(li);
+            });
+            storeDiv.appendChild(ul);
+        }
+        
+        function displayCart() {
+            const cartMessage = document.getElementById('cartMessage');
+            if (cartMessage) {
+                document.body.removeChild(cartMessage);
+            }
+            
+            let itemCount = 0;
+            for (let i = 0; i < sessionStorage.length; i++) {
+                let key = sessionStorage.key(i);
+                if (availableItems.includes(key)) {
+                    itemCount++;
+                }
+            }
+            
+            if (itemCount > 0) {
+                const p = document.createElement('p');
+                p.id = 'cartMessage';
+                p.innerText = `You previously had ${itemCount} items in your cart.`;
+                document.body.appendChild(p);
+            }
+        }
+        
+        window.onload = function() {
+            if (!isSessionStorageEnabled()) {
+                alert('Sorry, your browser does not support Web storage. Try again with a better one');
+            } else {
+                createStore();
+                displayCart();
+            }
+        };
+
+    </script>
+</body>
+</html>
