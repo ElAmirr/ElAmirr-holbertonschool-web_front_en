@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <title>Task 0</title>
+</head>
+
+<body>
+    <script type="application/javascript">
+        function createSearchForm() {
+            // Create form elements
+            const $form = $('<form></form>');
+            const $input = $("<input type='text'>");
+            const $submit = $("<input type='submit' value='Submit'>");
+            const $ul = $('<ul></ul>');
+
+            // Append input and submit button to the form
+            $form.append($input, $submit);
+
+            // Append form and ul to the body
+            $('body').append($form, $ul);
+
+            // Handle form submission
+            $form.on('submit', function(event) {
+                event.preventDefault();
+                queryWikipedia($input.val());
+            });
+        }
+
+        function addNewArticle(id, title, snippet) {
+            // Create new list item and paragraphs
+            const $li = $('<li></li>');
+            const $p1 = $('<p></p>').html(`<span>id - </span><b>${title}</b>`);
+            const $p2 = $('<p></p>').html(snippet);
+
+            // Append paragraphs to list item
+            $li.append($p1, $p2);
+
+            // Append list item to the ul
+            $('ul').append($li);
+        }
+
+        function queryWikipedia(search) {
+            // Create data object for Wikipedia API query
+            const data = {
+                action: 'query',
+                list: 'search',
+                srsearch: search,
+                format: 'json',
+                origin: '*'
+            };
+
+            // Make AJAX request to Wikipedia API
+            $.get('https://en.wikipedia.org/w/api.php', data, function(response) {
+                const results = response.query.search;
+
+                // Clear previous search results
+                $('ul').empty();
+
+                // Iterate over results and add new articles to the list
+                results.forEach(result => {
+                    addNewArticle(result.pageid, result.title, result.snippet);
+                });
+            }).fail(function() {
+                console.log('AJAX request failed');
+            });
+        }
+
+        // Call createSearchForm when the page loads
+        $(document).ready(function() {
+            createSearchForm();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+        <meta charset="utf-8" />
+        <title>Task 0</title>
+
+    </head>
+
+    <body>
+        <script type="application/javascript">
+            function createFamilyTree() {
+                // Create table elements using jQuery
+                const $table = $('<table></table>');
+                const $thead = $('<thead></thead>');
+                const $tbody = $('<tbody></tbody>');
+
+                // Create table head
+                const $theadRow = $('<tr></tr>');
+                $theadRow.append('<th>Firstname</th>');
+                $theadRow.append('<th>Lastname</th>');
+                $thead.append($theadRow);
+
+                // Create table body rows
+                const rows = [
+                    ['Guillaume', 'Salva'],
+                    ['Paulette', 'Salva'],
+                    ['Antoine', 'Salva']
+                ];
+
+                rows.forEach(row => {
+                    const $tr = $('<tr></tr>');
+                    $tr.append(`<td>${row[0]}</td>`);
+                    $tr.append(`<td>${row[1]}</td>`);
+                    $tbody.append($tr);
+                });
+
+                // Append head and body to the table
+                $table.append($thead);
+                $table.append($tbody);
+
+                // Append the table to the body of the page
+                $('body').append($table);
+            }
+
+            $(document).ready(function () {
+                createFamilyTree();
+            });
+        </script>
+    </body>
+
+</html>

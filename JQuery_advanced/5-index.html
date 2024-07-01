@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <title>Task 0</title>
+
+    <style>
+        td.remove-cell {
+            background-color: orange;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="application/javascript">
+        function createFamilyTree() {
+            // Create an empty table with headers
+            const $table = $('<table></table>')
+                .append($('<thead></thead>')
+                    .append($('<tr></tr>')
+                        .append($('<th></th>').text('Firstname'))
+                        .append($('<th></th>').text('Lastname'))))
+                .append($('<tbody></tbody>'));
+
+            // Append the table to the body
+            $('body').append($table);
+        }
+
+        function addNewMember(firstName, lastName) {
+            // Create a new row with cells for firstname, lastname, and a remove button
+            const $row = $('<tr></tr>')
+                .append($('<td></td>').text(firstName))
+                .append($('<td></td>').text(lastName))
+                .append($('<td class="remove-cell"></td>').text('(x)').click(function () {
+                    $(this).closest('tr').remove();
+                }));
+
+            // Append the row to the tbody of the table
+            $('table tbody').append($row);
+        }
+
+        $(document).ready(function () {
+            // Create the family tree initially
+            createFamilyTree();
+
+            // Add members using addNewMember function
+            addNewMember('Guillaume', 'Salva');
+            addNewMember('Arielle', 'Snizt');
+            addNewMember('Fanette', 'Snizt');
+            addNewMember('Gerard', 'Snizt');
+            addNewMember('Victor', 'Salva');
+        });
+    </script>
+</body>
+
+</html>
